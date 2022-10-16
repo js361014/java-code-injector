@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+group 'com.github.java.code.injector'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+    implementation 'com.github.javaparser:javaparser-symbol-solver-core:3.24.4'
+    implementation 'net.sourceforge.argparse4j:argparse4j:0.9.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.github.java.code.injector.Main'
+    }
+}
